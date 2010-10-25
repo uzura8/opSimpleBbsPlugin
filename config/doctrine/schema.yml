@@ -1,0 +1,87 @@
+options:
+  charset: utf8
+ 
+Bbs:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    member_id: { type: integer(4) }
+    title: { type: string, notnull: true }
+    body: { type: string, notnull: true }
+    public_flag: { type: integer(1), notnull: true, default: 1 }
+    is_open: { type: boolean, notnull: true, default: false }
+    has_images: { type: boolean, notnull: true, default: false }
+  relations:
+    Member:
+      onDelete: set null
+  indexes:
+    created_at:
+      fields: [created_at]
+    member_id_created_at:
+      fields: [member_id, created_at]
+    public_flag_craeted_at:
+      fields: [public_flag, created_at]
+    is_open_created_at:
+      fields: [is_open, created_at]
+
+BbsImage:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    bbs_id: { type: integer(4), notnull: true }
+    file_id: { type: integer(4), notnull: true }
+    number: { type: integer(4), notnull: true }
+  relations:
+    Bbs:
+      foreignAlias: BbsImages
+      onDelete: cascade
+    File:
+      foreignAlias: BbsImages
+      onDelete: cascade
+  indexes:
+    bbs_id_number:
+      fields: [bbs_id, number]
+      type: unique
+
+BbsComment:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    bbs_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4) }
+    number: { type: integer(4), notnull: true }
+    body: { type: string, notnull: true }
+    has_images: { type: boolean, notnull: true, default: false }
+  relations:
+    Bbs:
+      foreignAlias: BbsComments
+      onDelete: cascade
+    Member:
+      onDelete: set null
+  indexes:
+    bbs_id_number:
+      fields: [bbs_id, number]
+
+BbsCommentImage:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    bbs_comment_id: { type: integer(4), notnull: true }
+    file_id: { type: integer(4), notnull: true }
+  relations:
+    BbsComment:
+      foreignAlias: BbsCommentImages
+      onDelete: cascade
+    File:
+      foreignAlias: BbsCommentImages
+      onDelete: cascade
+
+BbsCommentUnread:
+  columns:
+    bbs_id: { type: integer(4), notnull: true, primary: true }
+    member_id: { type: integer(4), notnull: true }
+  relations:
+    Bbs:
+      foreignType: one
+      onDelete: cascade
+      owningSide: true
+    Member:
+      onDelete: cascade
