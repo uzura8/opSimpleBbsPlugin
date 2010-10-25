@@ -1,0 +1,3 @@
+bbs:
+  class: opSimpleBbsPluginFrontendRouteCollection
+  options: { name: Bbs }
