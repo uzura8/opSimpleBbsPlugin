@@ -9,13 +9,12 @@
  */
 
 /**
- * bbsComment actions.
+ * communityTopicComment components.
  *
  * @package    OpenPNE
- * @subpackage bbsComment
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
+ * @subpackage action
+ * @author     uzura8 <uzuranoie@gmail.com>
  */
-class bbsCommentActions extends opSimpleBbsPluginBbsCommentActions
+class bbsCommentComponents extends opBbsCommentComponents
 {
 }

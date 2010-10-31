@@ -54,7 +54,7 @@
 </div></div>
 <?php /* }}} */ ?>
 
-<!-- < ? php include_component('bbsComment', 'list', array('bbs' => $bbs)) ?> -->
+<?php include_component('bbsComment', 'list', array('bbs' => $bbs)) ?>
 
 <?php if ($sf_user->getMemberId()): ?>
 <?php
