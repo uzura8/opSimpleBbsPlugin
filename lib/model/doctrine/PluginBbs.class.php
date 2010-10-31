@@ -12,5 +12,25 @@
  */
 abstract class PluginBbs extends BaseBbs
 {
+  protected $previous, $next;
 
+  public function getPrevious()
+  {
+    if (is_null($this->previous))
+    {
+      $this->previous = $this->getTable()->getPreviousBbs($this);
+    }
+
+    return $this->previous;
+  }
+
+  public function getNext()
+  {
+    if (is_null($this->next))
+    {
+      $this->next = $this->getTable()->getNextBbs($this);
+    }
+
+    return $this->next;
+  }
 }

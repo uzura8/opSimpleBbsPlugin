@@ -1,0 +1,45 @@
+.bbsDetailBox dl {
+  border: 1px solid #CCCCCC;
+}
+
+.bbsDetailBox dt {
+  float: left;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+}
+
+.bbsDetailBox dd {
+  zoom: 1;
+  margin-left: 110px;
+  border-left: 1px solid #CCCCCC;
+}
+
+.bbsDetailBox dd div {
+  border-top: 1px solid #CCCCCC;
+}
+
+.bbsDetailBox dd div p {
+  padding: 5px;
+}
+
+.bbsDetailBox dd div.title {
+  border-top: none;
+}
+
+.bbsDetailBox dd ul.photo {
+  padding: 5px;
+}
+
+.bbsDetailBox dd ul.photo li {
+  display: inline;
+  margin-left: 6px;
+}
+
+.bbsDetailBox dd div.attachFile {
+  padding: 16px 5px;
+}
+
+.bbsDetailBox div.operation {
+  padding: 10px 0;
+}

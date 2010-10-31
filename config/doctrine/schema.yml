@@ -8,8 +8,6 @@ Bbs:
     member_id: { type: integer(4) }
     title: { type: string, notnull: true }
     body: { type: string, notnull: true }
-    public_flag: { type: integer(1), notnull: true, default: 1 }
-    is_open: { type: boolean, notnull: true, default: false }
     has_images: { type: boolean, notnull: true, default: false }
   relations:
     Member:
@@ -19,10 +17,6 @@ Bbs:
       fields: [created_at]
     member_id_created_at:
       fields: [member_id, created_at]
-    public_flag_craeted_at:
-      fields: [public_flag, created_at]
-    is_open_created_at:
-      fields: [is_open, created_at]
 
 BbsImage:
   columns:

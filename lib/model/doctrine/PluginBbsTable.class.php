@@ -12,8 +12,28 @@ class PluginBbsTable extends Doctrine_Table
      *
      * @return object PluginBbsTable
      */
+/*
     public static function getInstance()
     {
         return Doctrine_Core::getTable('PluginBbs');
     }
+*/
+
+  public function getPreviousBbs(Bbs $bbs)
+  {
+    $q = $this->createQuery()
+      ->andWhere('id < ?', $bbs->id)
+      ->orderBy('id DESC');
+
+    return $q->fetchOne();
+  }
+
+  public function getNextBbs(Bbs $bbs)
+  {
+    $q = $this->createQuery()
+      ->andWhere('id > ?', $bbs->id)
+      ->orderBy('id ASC');
+
+    return $q->fetchOne();
+  }
 }
