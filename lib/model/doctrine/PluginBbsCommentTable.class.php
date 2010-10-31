@@ -17,6 +17,12 @@
  */
 class PluginBbsCommentTable extends Doctrine_Table
 {
+
+  public function getCount($bbsId)
+  {
+    return $this->createQuery()->where('bbs_id = ?', $bbsId)->count();
+  }
+
   public function retrieveByBbsId($bbsId)
   {
     return $this->createQuery()

@@ -1,0 +1,9 @@
+Gadget:
+  bbs_list:
+    type: "contents"
+    name: "bbsList"
+    sort_order: 102
+  mobile_bbs_list:
+    type: "mobileContents"
+    name: "bbsList"
+    sort_order: 102

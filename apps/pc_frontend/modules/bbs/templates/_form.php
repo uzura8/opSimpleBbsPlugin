@@ -1,6 +1,6 @@
 <?php
 $form->getWidget('title')->setAttribute('size', 40);
-$form->getWidget('body')->setAttribute('rows', 20);
+$form->getWidget('body')->setAttribute('rows', 15);
 $form->getWidget('body')->setAttribute('cols', 50);
 
 $options = array(

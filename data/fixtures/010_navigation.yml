@@ -1,0 +1,28 @@
+Navigation:
+  secure_global_navigation_bbs:
+    type: "secure_global"
+    uri: "@bbs_index"
+    sort_order: 25
+    Translation:
+      en:
+        caption: "Bbs"
+      ja_JP:
+        caption: "掲示板"
+  mobile_home_side_navigation_bbs_new:
+    type: "mobile_home_side"
+    uri: "@bbs_new"
+    sort_order: 15
+    Translation:
+      en:
+        caption: "Post a Thread"
+      ja_JP:
+        caption: "スレッドを追加"
+  mobile_home_side_navigation_bbs_list:
+    type: "mobile_home_side"
+    uri: "@bbs_list"
+    sort_order: 16
+    Translation:
+      en:
+        caption: "Recently Posted Thread"
+      ja_JP:
+        caption: "最新スレッド"

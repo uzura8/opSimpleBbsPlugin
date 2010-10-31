@@ -43,3 +43,10 @@
 .bbsDetailBox div.operation {
   padding: 10px 0;
 }
+
+/*==============================================================================
+ * bbsSearchFormLine
+ *----------------------------------------------------------------------------*/
+#bbsSearchFormLine p.form {
+  text-align: right;
+}

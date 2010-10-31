@@ -13,6 +13,12 @@
 abstract class PluginBbs extends BaseBbs
 {
   protected $previous, $next;
+  protected $countBbsComments;
+
+  public function isEditable($memberId)
+  {
+    return ($this->getMemberId() === $memberId);
+  }
 
   public function getPrevious()
   {
@@ -32,5 +38,15 @@ abstract class PluginBbs extends BaseBbs
     }
 
     return $this->next;
+  }
+
+  public function countBbsComments($noCache = false)
+  {
+    if ($noCache || is_null($this->countBbsComments))
+    {
+      $this->countBbsComments = Doctrine::getTable('BbsComment')->getCount($this->id);
+    }
+
+    return $this->countBbsComments;
   }
 }

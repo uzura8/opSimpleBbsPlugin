@@ -14,17 +14,13 @@ class opSimpleBbsPluginBbsActions extends opSimpleBbsPluginActions
 
   public function executeSearch(sfWebRequest $request)
   {
-/*
     $this->keyword = $request['keyword'];
 
     $keywords = opDiaryPluginToolkit::parseKeyword($this->keyword);
-    $this->forwardUnless($keywords, 'diary', 'list');
+    $this->forwardUnless($keywords, 'bbs', 'list');
 
-    $publicFlag = $this->getUser()->hasCredential('SNSMember') ? DiaryTable::PUBLIC_FLAG_SNS : DiaryTable::PUBLIC_FLAG_OPEN;
-
-    $this->pager = Doctrine::getTable('Diary')->getDiarySearchPager($keywords, $request['page'], 20, $publicFlag);
+    $this->pager = Doctrine::getTable('Bbs')->getBbsSearchPager($keywords, $request['page'], 20);
     $this->setTemplate('list');
-*/
   }
 
   public function executeShow(sfWebRequest $request)
@@ -64,34 +60,31 @@ class opSimpleBbsPluginBbsActions extends opSimpleBbsPluginActions
 
   public function executeUpdate(sfWebRequest $request)
   {
-/*
     $this->forward404Unless($this->isBbsAuthor());
 
-    $this->form = new DiaryForm($this->diary);
+    $this->form = new bbsForm($this->bbs);
     $this->processForm($request, $this->form);
     $this->setTemplate('edit');
-*/
   }
-/*
+
   public function executeDeleteConfirm(sfWebRequest $request)
   {
-    $this->forward404Unless($this->isDiaryAuthor());
+    $this->forward404Unless($this->isBbsAuthor());
 
     $this->form = new BaseForm();
   }
 
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forward404Unless($this->isDiaryAuthor());
+    $this->forward404Unless($this->isBbsAuthor());
     $request->checkCSRFProtection();
 
-    $this->diary->delete();
+    $this->bbs->delete();
 
-    $this->getUser()->setFlash('notice', 'The diary was deleted successfully.');
+    $this->getUser()->setFlash('notice', 'The thread was deleted successfully.');
 
-    $this->redirect('@diary_list_member?id='.$this->getUser()->getMemberId());
+    $this->redirect('@bbs_list');
   }
-*/
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {

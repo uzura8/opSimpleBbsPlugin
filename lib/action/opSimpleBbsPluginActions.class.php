@@ -100,7 +100,7 @@ class opSimpleBbsPluginActions extends sfActions
 
   protected function isBbsAuthor()
   {
-    return $this->bbs->isAuthor($this->getUser()->getMemberId());
+    return $this->bbs->isEditable($this->getUser()->getMemberId());
   }
 
   protected function isBbsViewable()
